@@ -1,0 +1,28 @@
+.sass-cache
+.vagrant
+.env
+.DS_Store
+.idea
+*.iml
+*.iws
+tags
+node_modules
+/npm-debug.log
+*.sw?
+
+# script used during docker build that is specific to the environment
+env-config.sh
+
+# added during build
+/config/secrets.json
+
+/public/build*js
+/public/style*.css
+/public/style*.css.map
+/server/devdocs/search-index.js
+
+*.rdb
+*.db
+
+/calypso-whitelist.php
+cover.html
