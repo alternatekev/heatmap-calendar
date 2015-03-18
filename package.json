@@ -13,6 +13,7 @@
     "react": "0.12.0",
     "express-react-views": "latest",
     "lodash": "latest",
+    "moment": "latest",
     "grunt": "latest",
     "grunt-autoprefixer": "^1.0.1",
     "grunt-contrib-watch": "latest",
