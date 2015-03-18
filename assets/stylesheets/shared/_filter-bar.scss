@@ -1,0 +1,42 @@
+.filter-bar {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+	background: $ultra-light-gray;
+
+	li {
+		float: left;
+	}
+
+	a {
+		display: block;
+		padding: 15px 20px 14px;
+		border-bottom: 2px solid transparent;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-decoration: none;
+
+		@include responsive(one-col) {
+			padding: 10px;
+			font-weight: 400;
+			font-size: 14px;
+		}
+
+		&:hover {
+			border-bottom-color: $link-highlight;
+		}
+
+		&.selected {
+			font-weight: 400;
+			color: $dark-gray;
+			border-bottom-color: $medium-gray;
+
+			&:hover {
+				color: $link-highlight;
+				border-bottom-color: $link-highlight;
+			}
+		}
+	}
+}

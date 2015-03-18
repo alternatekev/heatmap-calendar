@@ -1,0 +1,185 @@
+$full-width:	960px;
+$one-col:		690px;
+$mobile:		560px;
+
+$sidebar-width:	265px;
+
+@mixin responsive($width) {
+	@if $width == full-width {
+		@media only screen and (max-width: $full-width) { @content; }
+	}
+	@else if $width == one-col {
+		@media only screen and (max-width: $one-col) { @content; }
+	}
+	@else if $width == mobile {
+		@media only screen and (max-width: $mobile) { @content; }
+	}
+}
+
+@mixin mobile-first-responsive($width) {
+	@if $width == full-width {
+		@media only screen and (min-width: $one-col) { @content; }
+	}
+	@else if $width == one-col {
+		@media only screen and (min-width: $mobile) { @content; }
+	}
+}
+
+@mixin calc($property, $expression) {
+	#{$property}: -moz-calc(#{$expression});
+	#{$property}: -o-calc(#{$expression});
+	#{$property}: -webkit-calc(#{$expression});
+	#{$property}: calc(#{$expression});
+}
+
+@mixin clear-fix {
+	&:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+@mixin noticon($char, $size) {
+	// This isn't very clean, but... we'll see ;)
+	font-size: $size;
+	content: $char;
+
+	// Copied verbatim
+	vertical-align: top;
+	text-align: center;
+	-moz-transition: color .1s ease-in 0;
+	-webkit-transition: color .1s ease-in 0;
+	display: inline-block;
+	font-family: "Noticons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	line-height: 1;
+	text-decoration: inherit;
+	text-transform: none;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	speak: none;
+}
+
+@mixin border-box {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin bar-behaved-lists($height) {
+	ul {
+		float: left;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			float: left;
+
+			a {
+				display: block;
+				height: $height;
+				line-height: $height;
+				margin: 0;
+				padding: 0 10px;
+				outline: 0;
+
+				transition: background 100ms ease-in-out, color 80ms ease-in-out;
+			}
+		}
+	}
+}
+
+// Turn a list into a dropdown menu
+@mixin dropdown-menu {
+	display: none;
+	background: $white;
+	float: none;
+	line-height: 46px;
+	min-width: 220px;
+	overflow: visible;
+	padding: 0;
+	position: absolute;
+	width: auto;
+	z-index: 1;
+	box-sizing: border-box;
+	box-shadow: 0 0 2px rgba(0,0,0,0.15), 0 3px 8px rgba(0,0,0,0.1);
+
+	&:after {
+		border: 6px solid transparent;
+		border-bottom-color: $white;
+		content: ' ';
+		height: 0;
+		position: absolute;
+			top: -12px;
+			left: 8px;
+		width: 0;
+	}
+
+	li {
+		display: block;
+		float: none;
+
+		a,
+		a.selected {
+			border-bottom: 1px solid rgba(0,0,0,0.1);
+			color: $wordpress-blue;
+			display: block;
+			float: none;
+			height: auto;
+			margin: 0;
+			padding: 0 14px;
+			text-align: left;
+
+			&:hover {
+				border-bottom: 1px solid rgba(0,0,0,0.1);
+				background: none; // Remove inherited background color
+				color: $link-highlight;
+				box-shadow: none; // Remove inherited box shadow
+			}
+		}
+
+		a.selected {
+			color: $dark-gray;
+		}
+
+		&:last-child a {
+			border-bottom: none; // Last child in the dropdown doesn't need a bottom border
+		}
+	}
+}
+
+// Can't use the @extend in a media query, use this instead
+@mixin clear-text {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// courtesy: http://codeboxers.com/sass-mixin-for-transitions/
+@mixin transition($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	-o-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+@mixin box-shadow($shadows...) {
+	-webkit-box-shadow: $shadows;
+	-moz-box-shadow: $shadows;
+	-ms-box-shadow: $shadows;
+	-o-box-shadow: $shadows;
+	box-shadow: $shadows;
+}

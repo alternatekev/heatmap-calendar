@@ -1,0 +1,126 @@
+/**
+ * Notices: Messages and Actions
+ */
+.notice-message,
+.notice-action {
+	border-radius: 1px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+	margin-bottom: 30px;
+	padding: 15px 20px;
+	position: relative;
+
+	&:before {
+		@extend %noticon;
+		line-height: 0;
+		margin: -4px 20px 0 0;
+		content: "\f456";
+		font-size: 32px;
+	}
+
+	&.success:before {
+		content: '\f418';
+	}
+	&.info:before {
+		content: '\f455';
+	}
+
+	.button {
+		position: absolute;
+			right: 70px;
+			top: 10px;
+	}
+}
+
+/* Red - Error */
+.notice-message.error {
+	color: white;
+	background: $alert-red-dull;
+
+	&:before {
+		color: $alert-red-darker;
+	}
+}
+.notice-action.error {
+	color: $alert-red;
+	background: white;
+
+	&:before {
+		color: $alert-red;
+	}
+}
+
+/* Green - Success */
+.notice-message.success {
+	color: white;
+	background: $alert-green-dull;
+
+	&:before {
+		color: $alert-green-darker;
+	}
+}
+.notice-action.success {
+	color: $alert-green;
+	background: white;
+
+	&:before {
+		color: $alert-green;
+	}
+}
+
+/* Blue - Notice */
+.notice-message.info {
+	color: white;
+	background: $alert-blue-dull;
+
+	&:before {
+		color: $alert-blue-darker;
+	}
+}
+.notice-action.info {
+	color: $alert-blue-darker;
+	background: white;
+
+	&:before {
+		color: $alert-blue-darker;
+	}
+}
+
+/* Yellow - Warning */
+.notice-message.warning {
+	color: white;
+	background: $alert-yellow-dull;
+
+	&:before {
+		color: $alert-yellow-darker;
+	}
+}
+.notice-action.warning {
+	color: $alert-yellow;
+	background: white;
+
+	&:before {
+		color: $alert-yellow;
+	}
+}
+
+.notice-dismiss {
+	color: $text-gray;
+	cursor: pointer;
+	padding: 20px 20px;
+	position: absolute;
+		right: 0;
+		top: 0;
+
+	&:hover {
+		color: $dark-gray;
+	}
+}
+.notice-message .notice-dismiss {
+	background: rgba( 255, 255, 255, 0.2 );
+	color: $white;
+	opacity: 0.8;
+
+	&:hover {
+		opacity: 1;
+	}
+}

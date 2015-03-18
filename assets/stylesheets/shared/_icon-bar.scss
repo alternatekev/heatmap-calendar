@@ -1,0 +1,67 @@
+.icon-bar {
+	margin: 0 0 30px 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+	background: $ultra-light-gray;
+	box-shadow: 0 -2px 0 tint($medium-gray, 30%) inset;
+	position: absolute;
+	z-index: 1000;
+	top: 0;
+	right: 0;
+	width: auto;
+
+	@include responsive(one-col) {
+		// Restyle the icon bar as tabs
+		right: 0;
+		left: auto;
+		background: transparent;
+	
+	}
+
+	li {
+		float: left;
+		
+	}
+
+	a {
+		display: block;
+		padding: 10px 12px 9px;
+		border-bottom: 2px solid transparent;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-decoration: none;
+
+		.noticon{
+			font-size: 32px;
+			
+		}
+
+		&:hover {
+			border-bottom-color: $link-highlight;
+		}
+
+		&.selected {
+			font-weight: 600;
+			color: $dark-gray;
+			border-bottom-color: $dark-gray;
+
+			&:hover {
+				color: $link-highlight;
+				border-bottom-color: $link-highlight;
+			}
+
+			.icon-title{
+				color: $dark-gray;
+			}
+		}
+
+		.icon-title{
+			display: none;
+			
+		}
+	}
+
+	
+}

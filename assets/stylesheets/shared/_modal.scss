@@ -1,0 +1,254 @@
+.wpcom-modal {
+	padding: 0;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: 0 auto;
+	opacity: 0;
+	transform: translateX( 200px );
+	pointer-events: none;
+	transition: all 0.25s ease-in-out;
+	z-index: 10001; // Because, why not? + 1
+	border-left: 1px solid rgba( $dark-blue, 0.15 );
+
+	& > .card {
+		margin: 0 15%;
+		max-width: 100%;
+		//position: relative;
+		background: #fff;
+		box-shadow: 0 0 0 1px rgba( $medium-gray, 0.4 ), 0 2px 10px 1px rgba( $medium-gray, 0.8 );
+
+		@media only screen and (max-width: 760px) {
+			margin: 0 5%;
+		}
+
+		@include responsive(one-col) {
+			margin: 0;
+		}
+
+		header.has-featured-image {
+			height: 180px;
+
+			&:before {
+				background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 70%);
+			}
+		}
+
+		.card-body {
+			h1 {
+				font-size: 48px;
+
+				@include responsive(one-col) {
+					font-size: 30px;
+				}
+
+				a {
+					text-align: center;
+					margin: 0 15px 30px 15px;
+					padding: 30px 40px 20px 40px;
+					border-bottom: 1px solid rgba( $light-gray, 0.5 );
+
+					@include responsive(one-col) {
+						text-align: left;
+						margin-left: 0;
+						margin-right: 0;
+						padding: 20px 20px 35px 20px !important;
+					}
+				}
+			}
+		}
+
+		header.has-featured-image {
+			height: 180px;
+
+			&:before {
+				background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 70%);
+			}
+		}
+
+		.card-body h1 a {
+			padding: 30px 40px 20px 40px;
+		}
+
+		footer {
+			margin-top: 20px;
+			background: rgba( #fff, 0 );
+			border-top: 1px solid rgba( $light-gray, 0 );
+			transition: all 0.15s ease-in-out;
+
+			&.fixedsticky {
+				position: sticky;
+				bottom: 0px;
+				//left: 15%;
+				//right: 15%;
+				padding-top: 20px;
+				background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba($ultra-light-gray,1) 40%);
+				background: rgba( #fff, 0.98 );
+				border-top: 1px solid rgba( $light-gray, 0.7 );
+				box-sizing: border-box;
+				//z-index: 1;
+
+				@media only screen and (max-width: 760px) {
+					//left: 5%;
+					//right: 5%;
+				}
+
+				@include responsive(one-col) {
+					//left: 0;
+					//right: 0;
+				}
+			}
+		}
+	}
+}
+
+.wpcom-modal-shade {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+	z-index: 10000; // Because, why not?
+	transition: all 0.1s ease-in-out;
+}
+
+.wpcom-modal-comments {
+	width: 100%;
+	max-width: 700px;
+	margin: 20px auto;
+	padding: 0;
+	background: $light-gray;
+	box-sizing: border-box;
+}
+
+.wpcom-modal-related-posts {
+	background: rgba(0,0,0,0.3);
+	padding: 40px;
+	text-align: center;
+}
+
+.wpcom-modal-options {
+	opacity: 0;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	left: 15%;
+	right: 15%;
+	height: 60px;
+	padding: 0;
+	margin: 0 auto;
+	z-index: 10002; // Because, why not? + 2
+	list-style: none;
+	transform: translateY( -100px );
+	transition: all 0.15s ease-in-out;
+
+	@media only screen and (max-width: 760px) {
+		left: 5%;
+		right: 5%;
+	}
+
+	@include responsive(one-col) {
+		left: 0;
+		right: 0;
+	}
+
+	li {
+		color: $light-blue;
+		padding: 18px;
+		margin: 0;
+		float: right;
+
+		&:before {
+			@include noticon( '\f406', 24px );
+		}
+
+		span {
+			display: none;
+		}
+	}
+
+	.wpcom-modal-close {}
+}
+
+// Body Transitions
+body {
+	.main,
+	.wpcom-content {
+		overflow: visible;
+	}
+
+	#header,
+	#secondary,
+	#primary,
+	#reader-content,
+	#reader-content .mobile-header {
+		transition: all 0.15s ease-in-out;
+	}
+
+	#reader-content .card {
+		transition: all 0.3s ease-in-out;
+	}
+
+	&.wpcom-modal-open {
+		overflow: hidden;
+
+		#header {
+			transform: translateY( -46px );
+			pointer-events: none;
+			opacity: 0;
+		}
+
+		#secondary {
+			pointer-events: none;
+			opacity: 0;
+			transform: translateX( -200px );
+
+			@include responsive(one-col) {
+				opacity: 1;
+				transform: translateX( 0 );
+			}
+		}
+
+		#reader-content {
+			transform: translateX( -200px );
+			opacity: 0;
+
+			@include responsive(one-col) {
+				transform: translateX( 0 );
+			}
+		}
+
+		#reader-content .card {
+			&.open {
+				transform: scale( 0.98 ) rotate(1.5deg);
+			}
+		}
+
+		#reader-content .mobile-header {
+			opacity: 0;
+		}
+
+		.wpcom-modal {
+			opacity: 1;
+			transform: translateX(0);
+			pointer-events: auto;
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		.wpcom-modal-shade {
+			opacity: 1;
+			//pointer-events: auto;
+		}
+
+		.wpcom-modal-options {
+			opacity: 1;
+			pointer-events: auto;
+			transform: translateY( 0 );
+		}
+	}
+}

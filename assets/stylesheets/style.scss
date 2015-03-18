@@ -1,0 +1,10 @@
+// Shared
+@import 'shared/reset';					// css reset before the rest of the styles are defined
+@import 'shared/typography';			// all the typographic rules, variables, etc.
+@import 'shared/functions';				// functions that we've used from Compass, ported over
+@import 'shared/colors';				// import all of our wpcom colors
+@import 'shared/mixins';				// sass mixins for gradients, bordius radii, etc.
+@import 'shared/extends';				// sass extends for commonly used styles
+@import 'shared/animation';				// all UI animation
+
+@import 'sections/heatmap-calendar';

@@ -1,0 +1,102 @@
+$row-height: 75px;
+
+
+.calendar-container{
+	
+	overflow:auto;
+	line-height: 1;
+}
+
+
+
+.rc-Calendar{
+
+	//min-width: 4000px;
+	margin: 20px;
+
+	font-family: $sans;
+	font-size: 24px;
+
+	width: 9332px;
+
+	.rc-Month{
+		min-width: 686px;
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 50px;
+
+		header.rc-Month-header{
+			font-size: 24px;
+			text-align: center;
+		}
+
+		.rc-Week-number{
+			display: none;
+		}
+
+		.rc-Month-weekdays{
+			margin-bottom: 10px;
+
+			.rc-Month-weekdays-weekday{
+				text-align: center;
+				height: $row-height / 2;
+				background: $white;
+
+
+				label{
+					line-height: 55px;
+					color: $medium-gray;
+				}
+
+			}
+		}
+
+
+		.rc-Month-weekdays-weekday,
+		.rc-Day{
+			width: calc(100%/7 - 10px);
+			display: inline-block;
+			font-size: 12px;
+			text-transform: uppercase;
+			text-align: center;
+			height: $row-height;
+			border-left: 0px;
+			background: $ultra-light-gray;
+			margin-right: 5px;
+			text-align: right;
+		
+		}
+
+
+		.rc-Week-days{
+			height: $row-height;
+			margin-bottom: 5px;
+			font-size: 12px;
+
+			.rc-Day{
+				position: relative;
+				border-radius: 3px;
+
+				&.rc-Day--outside{
+					background: $ultra-light-gray-light;
+
+
+					.rc-Day-body{
+						color: $medium-gray;
+						display: none;
+					}
+				}
+
+				.rc-Day-body{
+					position: absolute;
+					top: 10px;
+					right: 10px;
+
+					color: $medium-blue;
+					font-size: 18px;
+					font-weight: 600;
+				}
+			}
+		}		
+	}
+}

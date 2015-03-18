@@ -1,0 +1,170 @@
+/* Search filter */
+.search {
+	position: relative;
+	height: 48px;
+	margin-bottom: 30px;
+	border-top: 3px solid #fff;
+	border-bottom: 2px solid $medium-gray;
+	background: #fff;
+	overflow: hidden;
+
+	@include responsive(one-col) {
+		margin: 0 4px 15px;
+	}
+
+	.noticon-search {
+		position: relative;
+		z-index: 20;
+		font-size: 24px;
+		padding: 11px 18px 14px;
+		color: $wordpress-blue;
+		background: #fff;
+		cursor: pointer;
+
+		@include responsive(one-col) {
+			padding: 14px 10px 5px;
+		}
+	}
+
+	input {
+		position: absolute;
+		z-index: 10;
+		top: 0;
+		left: 60px;
+		padding: 0 50px 0 0;
+		border: none;
+		background: #fff;
+		height: 47px;
+		appearance: none;
+		box-sizing: border-box;
+		-webkit-transition: none;
+
+		@include responsive(one-col) {
+			left: 45px;
+		}
+	}
+
+	input:focus {
+		box-shadow: none;
+		border: none;
+		-webkit-appearance: none;
+	}
+
+	&.active {
+		border: 3px solid $medium-gray;
+		border-bottom-width: 2px;
+
+		.noticon-search {
+			padding-left: 15px;
+		}
+
+		input {
+			margin-left: -3px;
+		}
+	}
+}
+
+.search-popup {
+	display: none;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	top: 52px;
+	left: 0;
+	width: calc( 100% - 5px );
+
+	border: 3px solid $medium-gray;
+	border-top: none;
+	background: #fff;
+
+	p, a, h4 {
+		padding: 10px 20px;
+		margin: 0;
+		color: $text-gray;
+	}
+
+	strong {
+		color: $dark-gray; 
+		font-weight: normal;
+	}
+
+	img {
+		border-radius: 50%;
+		width: 22px;
+		height: 22px;
+		vertical-align: middle;
+		margin-right: 5px;
+	}
+
+	span.count {
+		float: right;
+		font-style: italic;
+		font-weight: 200;
+		color: $text-gray;
+	}
+
+	h4 {
+		border-top: 1px solid $light-gray;
+		border-bottom: 1px solid $light-gray;
+		background: $ultra-light-gray;
+		padding-top: 20px;
+		text-transform: uppercase;
+		font-weight: 200;
+		letter-spacing: .1em;
+	}
+
+	a {
+		display: block;
+		padding: 10px 20px;
+		margin: 0;
+		border-bottom: 1px solid $light-gray;
+		color: $text-gray;
+		
+		&:hover {
+			background: $ultra-light-gray-light;
+			color: $link-highlight;
+		}
+
+		&.search-for {
+			border-bottom: none;
+		}
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			padding: 0;
+			margin: 0;
+			
+			a {
+				color: $text-gray;
+			}
+		}
+
+		em {
+			color: $text-gray;
+			font-style: normal;
+		}
+
+		li:last-child a {
+			border: none;
+		}
+	}
+
+	ul.users {
+		li a {
+			color: $dark-gray; 
+		}
+	}
+
+	ul.filters {
+		li a {
+			color: $dark-gray;
+		}
+	}
+}
